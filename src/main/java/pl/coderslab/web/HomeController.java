@@ -4,6 +4,7 @@ import org.hibernate.annotations.common.util.impl.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import pl.coderslab.dao.BookDao;
 
 @Controller
 public class HomeController {
