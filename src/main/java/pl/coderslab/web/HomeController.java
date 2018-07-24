@@ -11,9 +11,9 @@ public class HomeController {
 
 
     @GetMapping("/")
-    @ResponseBody
     public String indexAction() {
-        return "index";
+        return
+                "index";
     }
 
     @GetMapping("/testAction")
