@@ -17,6 +17,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
+import pl.coderslab.converter.StudentGroupConverter;
 
 import javax.persistence.EntityManagerFactory;
 import java.util.Locale;
@@ -26,6 +27,16 @@ import java.util.Locale;
 @ComponentScan(basePackages = "pl.coderslab")
 @EnableTransactionManagement
 public class AppConfig extends WebMvcConfigurerAdapter {
+
+
+    @Override
+    public void addFormatters(FormatterRegistry registry) {
+        registry.addConverter(getStudentGroupConverter());
+    }
+    @Bean
+    public StudentGroupConverter getStudentGroupConverter() {
+        return new StudentGroupConverter();
+    }
 
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {

@@ -12,7 +12,7 @@
 <form:form method="post" modelAttribute="student">
     <div>Imię<form:input path="firstName" /> </div>
     <div>Nazwisko<form:input path="lastName" /></div>
-    <div><form:select itemLabel="name" itemValue="id" path="studentGroup.id" items="${studentGroups}"/></div>
+    <div><form:select itemLabel="name" itemValue="id" path="studentGroup" items="${studentGroups}"/></div>
     <input type="submit" value="Save">
 </form:form>
 
