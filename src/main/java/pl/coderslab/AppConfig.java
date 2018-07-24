@@ -17,6 +17,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
+import pl.coderslab.converter.DrinkConverter;
 import pl.coderslab.converter.StudentGroupConverter;
 
 import javax.persistence.EntityManagerFactory;
@@ -32,11 +33,17 @@ public class AppConfig extends WebMvcConfigurerAdapter {
     @Override
     public void addFormatters(FormatterRegistry registry) {
         registry.addConverter(getStudentGroupConverter());
+        registry.addConverter(getDrinkConverter());
     }
     @Bean
     public StudentGroupConverter getStudentGroupConverter() {
         return new StudentGroupConverter();
     }
+    @Bean
+    public DrinkConverter getDrinkConverter() {
+        return new DrinkConverter();
+    }
+
 
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {

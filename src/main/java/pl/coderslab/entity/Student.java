@@ -1,6 +1,7 @@
 package pl.coderslab.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Student {
@@ -11,6 +12,17 @@ public class Student {
     private String lastName;
     @ManyToOne
     private StudentGroup studentGroup;
+
+    @ManyToMany
+    private List<Drink> drinks;
+
+    public List<Drink> getDrinks() {
+        return drinks;
+    }
+
+    public void setDrinks(List<Drink> drinks) {
+        this.drinks = drinks;
+    }
 
     public Long getId() {
         return id;

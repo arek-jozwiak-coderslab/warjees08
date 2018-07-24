@@ -13,6 +13,9 @@
     <div>Imię<form:input path="firstName" /> </div>
     <div>Nazwisko<form:input path="lastName" /></div>
     <div><form:select itemLabel="name" itemValue="id" path="studentGroup" items="${studentGroups}"/></div>
+    <div>
+        <form:checkboxes itemValue="id" itemLabel="name" path="drinks" items="${drinkList}"/>
+    </div>
     <input type="submit" value="Save">
 </form:form>
 

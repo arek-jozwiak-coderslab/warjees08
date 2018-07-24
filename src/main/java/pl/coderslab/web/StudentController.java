@@ -4,8 +4,10 @@ package pl.coderslab.web;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import pl.coderslab.dao.DrinkDao;
 import pl.coderslab.dao.StudentDao;
 import pl.coderslab.dao.StudentGroupDao;
+import pl.coderslab.entity.Drink;
 import pl.coderslab.entity.Student;
 import pl.coderslab.entity.StudentGroup;
 
@@ -16,14 +18,22 @@ import java.util.List;
 public class StudentController {
     private final StudentGroupDao studentGroupDao;
     private final StudentDao studentDao;
+    private final DrinkDao drinkDao;
 
-    public StudentController(StudentGroupDao studentGroupDao, StudentDao studentDao) {
+    public StudentController(StudentGroupDao studentGroupDao, StudentDao studentDao, DrinkDao drinkDao) {
         this.studentGroupDao = studentGroupDao;
         this.studentDao = studentDao;
+        this.drinkDao = drinkDao;
     }
+
     @ModelAttribute("studentGroups")
     public List<StudentGroup> getGroups(){
         return studentGroupDao.getAll();
+    }
+
+    @ModelAttribute("drinkList")
+    public List<Drink> getDrinks(){
+        return drinkDao.getAll();
     }
 
 
