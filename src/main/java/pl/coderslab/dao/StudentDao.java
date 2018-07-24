@@ -22,7 +22,9 @@ public class StudentDao {
         entityManager.persist(b);
     }
 
-
+    public Student findById(long id) {
+        return entityManager.find(Student.class, id);
+    }
 
 
 }

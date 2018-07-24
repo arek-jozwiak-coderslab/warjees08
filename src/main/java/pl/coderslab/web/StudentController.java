@@ -30,14 +30,18 @@ public class StudentController {
     @RequestMapping(value = "/register",method = RequestMethod.GET)
     public String showRegistrationForm(Model model) {
         Student student = new Student();
-        student.setFirstName("Arek");
         model.addAttribute("student", student);
         return "student/form"; }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public String processForm(@ModelAttribute Student student, Model model) {
-        model.addAttribute("student", student);
+    public String processForm(@ModelAttribute Student student) {
         studentDao.save(student);
+        return "redirect:/student/success?id="+student.getId();
+    }
+
+    @GetMapping("/student/success")
+    public String successAdd(@RequestParam long id, Model model) {
+         model.addAttribute("student", studentDao.findById(id));
         return "student/success";
     }
 

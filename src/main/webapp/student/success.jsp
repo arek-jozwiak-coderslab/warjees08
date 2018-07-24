@@ -7,5 +7,6 @@
 <body>
 
 <h3>${student.firstName} - ${student.lastName}</h3>
+<h4>${student.studentGroup.name}</h4>
 </body>
 </html>
