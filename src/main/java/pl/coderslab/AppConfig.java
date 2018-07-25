@@ -21,6 +21,7 @@ import pl.coderslab.converter.DrinkConverter;
 import pl.coderslab.converter.StudentGroupConverter;
 
 import javax.persistence.EntityManagerFactory;
+import javax.validation.Validator;
 import java.util.Locale;
 
 @Configuration
@@ -72,12 +73,15 @@ public class AppConfig extends WebMvcConfigurerAdapter {
         return viewResolver;
     }
 
-
-
     @Bean(name = "localeResolver")
     public LocaleContextResolver getLocaleContextResolver() {
         SessionLocaleResolver localeResolver = new SessionLocaleResolver();
         localeResolver.setDefaultLocale(new Locale("pl", "PL"));
         return localeResolver;
+    }
+
+    @Bean
+    public Validator validator() {
+        return new LocalValidatorFactoryBean();
     }
 }

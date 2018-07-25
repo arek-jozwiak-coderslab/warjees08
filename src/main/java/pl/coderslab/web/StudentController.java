@@ -57,7 +57,6 @@ public class StudentController {
 
     @ModelAttribute("languages")
     public List<String> checkOptions() {
-        System.out.println("COŚ Z MODEL ATTRIBITE");
         String a[] = new String[] {"java", "php", "ruby", "python"};
         return Arrays.asList(a);
     }

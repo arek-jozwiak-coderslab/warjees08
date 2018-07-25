@@ -10,6 +10,7 @@ public class Student {
     private Long id;
     private String firstName;
     private String lastName;
+
     @ManyToOne
     private StudentGroup studentGroup;
 
