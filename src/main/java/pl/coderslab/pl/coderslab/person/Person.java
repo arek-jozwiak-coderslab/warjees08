@@ -17,7 +17,7 @@ public class Person {
     private Long id;
     @NotBlank
     @Size(min = 2, max = 30)
-    @StartWith
+    @StartWith("B")
     private String firstName;
     @NotBlank(message = "NO NO NO my friend !!!")
     @Size(min = 2, max = 30)

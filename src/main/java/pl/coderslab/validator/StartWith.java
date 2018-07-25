@@ -11,6 +11,8 @@ import java.lang.annotation.Target;
 @Target({ElementType.METHOD, ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface StartWith {
+    String value();
+
     String message() default "{startWith.error.message}";
 
     Class<?>[] groups() default {};
