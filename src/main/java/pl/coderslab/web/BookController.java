@@ -87,4 +87,11 @@ public class BookController {
         return "books/list";
     }
 
+    @RequestMapping("/remove-book")
+    public String removeBook(Model model){
+        Book one = bookRepository.findOne(6l);
+        bookRepository.delete(one);
+        return "books/list";
+    }
+
 }
