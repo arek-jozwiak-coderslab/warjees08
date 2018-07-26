@@ -15,6 +15,7 @@ import pl.coderslab.entity.Book;
 import pl.coderslab.repositories.AuthorRepository;
 import pl.coderslab.repositories.BookRepository;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -67,13 +68,16 @@ public class BookController {
     @ResponseBody
     public String getListByAuthors(Model model){
         Author author = authorRepository.findOne(1l);
+
         List<Book> books = bookRepository.findBooksByAuthorsIn(Arrays.asList(author));
         List<Book> booksWithAuthors = bookRepository.findWithAuthorsQuery();
 
         booksWithAuthors.forEach(book -> {
             System.out.println(book.getAuthors());
         });
-//        List<Book> booksByQuery = bookRepository.findQuery(Arrays.asList(author));
+        List<Book> booksByQuery = bookRepository.findQuery(Arrays.asList(author));
+        System.out.println("booksByQuery \n");
+        booksByQuery.forEach(book -> {book.getAuthors().forEach(System.out::println);});
 
         bookRepository.changeTitle("Thinking in java", "Some other");
 
