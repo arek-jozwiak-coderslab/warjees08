@@ -2,6 +2,7 @@ package pl.coderslab.pl.coderslab.person;
 
 import org.hibernate.validator.constraints.NotBlank;
 import pl.coderslab.validator.StartWith;
+import pl.coderslab.validator.ValidationGroupName;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,7 +17,7 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotBlank
-    @Size(min = 2, max = 30)
+    @Size(min = 2, max = 30, groups = {ValidationGroupName.class})
     @StartWith("B")
     private String firstName;
     @NotBlank(message = "NO NO NO my friend !!!")

@@ -25,6 +25,8 @@ public class ValidationController {
         List<String> errros = new ArrayList<>();
         Set<ConstraintViolation<ValidatedBook>> validate = validator.validate(validatedBook);
 
+
+
         for (ConstraintViolation<ValidatedBook> validatedBookConstraintViolation : validate) {
 
             errros.add(validatedBookConstraintViolation.getPropertyPath() + " " + validatedBookConstraintViolation.getMessage() );

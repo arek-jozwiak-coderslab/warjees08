@@ -14,6 +14,9 @@ public class Book {
     @ManyToOne
     private Author author;
 
+    @ManyToOne
+    private Category category;
+
     @ManyToMany
     private List<Author> authors;
 
@@ -77,6 +80,14 @@ public class Book {
 
     public void setIsbn(String isbn) {
         this.isbn = isbn;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     @Override

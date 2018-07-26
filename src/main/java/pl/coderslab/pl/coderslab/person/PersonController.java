@@ -6,8 +6,10 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import pl.coderslab.dao.PersonDao;
+import pl.coderslab.repositories.PersonRepository;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.Valid;
@@ -22,6 +24,21 @@ public class PersonController {
 
     @Autowired
     private PersonDao personDao;
+
+
+    private final PersonRepository personRepository;
+
+    public PersonController(PersonRepository personRepository) {
+        this.personRepository = personRepository;
+    }
+
+    @RequestMapping("/test-repo")
+
+    public void testRepository(){
+        Person person = personRepository.findOne(1l);
+        personRepository.findBestPeopleByFirstName("some");
+        System.out.println(person);
+    }
 
     @GetMapping("/add-person")
     @ResponseBody
