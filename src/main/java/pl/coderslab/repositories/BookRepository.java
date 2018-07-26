@@ -16,8 +16,13 @@ public interface BookRepository extends JpaRepository<Book, Long>, BookCustom{
 
     List<Book> findBooksByAuthorsIn(List<Author> authors); //ok
 
-    @Query("select b from Book b where b.authors in ?1 ") //in progress
+    @Query("select b from Book b where b.authors in ?1 ") //in progress not working
     List<Book> findQuery(List<Author> authors);
+
+
+    //initialize books
+    @Query("select b from Book b join fetch b.authors")
+    List<Book> findWithAuthorsQuery();
 
 
 

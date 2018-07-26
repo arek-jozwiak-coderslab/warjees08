@@ -1,4 +1,4 @@
-package pl.coderslab.pl.coderslab.person;
+package pl.coderslab.person;
 
 import org.hibernate.validator.constraints.NotBlank;
 import pl.coderslab.validator.StartWith;

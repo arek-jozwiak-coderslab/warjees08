@@ -1,7 +1,6 @@
 package pl.coderslab.repositories;
 
 import pl.coderslab.entity.Book;
-import pl.coderslab.pl.coderslab.person.Person;
 
 public interface BookCustom {
 

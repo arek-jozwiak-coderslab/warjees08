@@ -68,6 +68,11 @@ public class BookController {
     public String getListByAuthors(Model model){
         Author author = authorRepository.findOne(1l);
         List<Book> books = bookRepository.findBooksByAuthorsIn(Arrays.asList(author));
+        List<Book> booksWithAuthors = bookRepository.findWithAuthorsQuery();
+
+        booksWithAuthors.forEach(book -> {
+            System.out.println(book.getAuthors());
+        });
 //        List<Book> booksByQuery = bookRepository.findQuery(Arrays.asList(author));
 
         bookRepository.changeTitle("Thinking in java", "Some other");
